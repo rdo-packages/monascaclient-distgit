@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab895d6_91b047df",
+        "filename": "python-monascaclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-01-20T13:16:02Z",
+      "side": 1,
+      "message": "It should be \u003e\u003d 3.11.0 https://github.com/openstack/python-monascaclient/blob/master/requirements.txt#L7",
+      "range": {
+        "startLine": 53,
+        "startChar": 35,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "bec8518088b9ca25fcac6972cdd9b098224eace4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dab895d6_b1b54bcf",
+        "filename": "python-monascaclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-01-20T13:16:02Z",
+      "side": 1,
+      "message": "3.11.0",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 42
+      },
+      "revId": "bec8518088b9ca25fcac6972cdd9b098224eace4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dab895d6_d1c9df5b",
+        "filename": "python-monascaclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-01-20T13:16:02Z",
+      "side": 1,
+      "message": "We are setting a cliname  macro. We could use it for executables under %files.",
+      "range": {
+        "startLine": 188,
+        "startChar": 11,
+        "endLine": 188,
+        "endChar": 18
+      },
+      "revId": "bec8518088b9ca25fcac6972cdd9b098224eace4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
