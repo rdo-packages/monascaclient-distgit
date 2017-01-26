@@ -1,5 +1,5 @@
-# UUID          Group Name
-False 	Non-Interactive Users
-64a161079214bcc63019a01832d892b1a26928db       	openstack/monascaclient-distgit-core
-11214ee6e662766ebef6dcb59536b10333457ac9        	openstack/monascaclient-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+11214ee6e662766ebef6dcb59536b10333457ac9	openstack/monascaclient-distgit-ptl
+64a161079214bcc63019a01832d892b1a26928db	openstack/monascaclient-distgit-core
+global:Registered-Users                 	Registered Users
