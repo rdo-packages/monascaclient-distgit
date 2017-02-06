@@ -46,15 +46,15 @@ BuildRequires:  PyYAML
 
 Requires:       python-babel
 Requires:       python-iso8601
-Requires:       python-keystoneclient >= 3.8.0
+Requires:       python-keystoneclient >= 1:3.8.0
 Requires:       python-oslo-concurrency >= 3.8.0
-Requires:       python-oslo-config >= 3.14.0
+Requires:       python-oslo-config >= 2:3.14.0
 Requires:       python-oslo-i18n >= 2.1.0
 Requires:       python-oslo-log >= 3.11.0
 Requires:       python-oslo-middleware >= 3.0.0
 Requires:       python-oslo-serialization >= 1.10.0
 Requires:       python-oslo-service >= 1.10.0
-Requires:       python-oslo-utils
+Requires:       python-oslo-utils >= 3.18.0
 Requires:       python-pbr
 Requires:       python-prettytable
 Requires:       python-requests >= 2.10.0
@@ -107,15 +107,15 @@ BuildRequires:  python3-PyYAML
 
 Requires:       python3-babel
 Requires:       python3-iso8601
-Requires:       python3-keystoneclient >= 3.8.0
+Requires:       python3-keystoneclient >= 1:3.8.0
 Requires:       python3-oslo-concurrency >= 3.8.0
-Requires:       python3-oslo-config >= 3.14.0
+Requires:       python3-oslo-config >= 2:3.14.0
 Requires:       python3-oslo-i18n >= 2.1.0
 Requires:       python3-oslo-log >= 3.11.0
 Requires:       python3-oslo-middleware >= 3.0.0
 Requires:       python3-oslo-serialization >= 1.10.0
 Requires:       python3-oslo-service >= 1.10.0
-Requires:       python3-oslo-utils
+Requires:       python3-oslo-utils >= 3.18.0
 Requires:       python3-pbr
 Requires:       python3-prettytable
 Requires:       python3-requests >= 2.10.0
