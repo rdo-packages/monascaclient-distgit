@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac7a964_bd2440c7",
+        "filename": "python-monascaclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-02-20T15:25:19Z",
+      "side": 1,
+      "message": "python3 changes?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "267188616428dba14df98a73d6633ce429ab2321",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
