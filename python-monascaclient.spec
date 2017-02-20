@@ -34,9 +34,9 @@ BuildRequires:  git
 # Required for tests
 BuildRequires:  python-fixtures
 BuildRequires:  python-keystoneclient
-BuildRequires:  python-mock
-BuildRequires:  python-mox3
+BuildRequires:  python-os-testr
 BuildRequires:  python-oslo-serialization
+BuildRequires:  python-oslotest
 BuildRequires:  python-requests
 BuildRequires:  python-requests-mock
 BuildRequires:  python-testrepository
