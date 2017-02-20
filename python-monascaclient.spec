@@ -34,9 +34,9 @@ BuildRequires:  git
 # Required for tests
 BuildRequires:  python-fixtures
 BuildRequires:  python-keystoneclient
-BuildRequires:  python-mock
-BuildRequires:  python-mox3
+BuildRequires:  python-os-testr
 BuildRequires:  python-oslo-serialization
+BuildRequires:  python-oslotest
 BuildRequires:  python-requests
 BuildRequires:  python-requests-mock
 BuildRequires:  python-testrepository
@@ -95,9 +95,10 @@ BuildRequires:  python3-pbr >= 0.6
 # Required for tests
 BuildRequires:  python3-fixtures
 BuildRequires:  python3-keystoneclient
-BuildRequires:  python3-mock
 BuildRequires:  python3-mox3
+BuildRequires:  python3-os-testr
 BuildRequires:  python3-oslo-serialization
+BuildRequires:  python3-oslotest
 BuildRequires:  python3-requests
 BuildRequires:  python3-requests-mock
 BuildRequires:  python3-testrepository
