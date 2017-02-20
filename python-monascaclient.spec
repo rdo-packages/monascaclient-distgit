@@ -213,3 +213,4 @@ rm -rf .testrepository
 
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-monascaclient/commit/?id=f9696d6816c5e56dee6ca4b274ef861a39d1483f
