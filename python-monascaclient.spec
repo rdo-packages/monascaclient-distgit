@@ -32,13 +32,10 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 BuildRequires:  git
 # Required for tests
-BuildRequires:  python-fixtures
-BuildRequires:  python-keystoneclient
 BuildRequires:  python-os-testr
+BuildRequires:  python-osc-lib
 BuildRequires:  python-oslo-serialization
 BuildRequires:  python-oslotest
-BuildRequires:  python-requests
-BuildRequires:  python-requests-mock
 BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
 BuildRequires:  python-testtools
@@ -46,7 +43,7 @@ BuildRequires:  PyYAML
 
 Requires:       python-babel
 Requires:       python-iso8601
-Requires:       python-keystoneclient >= 1:3.8.0
+Requires:       python-osc-lib >= 1.5.1
 Requires:       python-oslo-concurrency >= 3.8.0
 Requires:       python-oslo-config >= 2:3.14.0
 Requires:       python-oslo-i18n >= 2.1.0
@@ -57,7 +54,6 @@ Requires:       python-oslo-service >= 1.10.0
 Requires:       python-oslo-utils >= 3.18.0
 Requires:       python-pbr
 Requires:       python-prettytable
-Requires:       python-requests >= 2.10.0
 Requires:       PyYAML >= 3.10
 Requires:       python-six >= 1.9.0
 
@@ -70,9 +66,7 @@ and Command Line Interface (CLI) library.
 Summary:        Tests for Python client for monasca REST API
 
 Requires:  python2-%{pypi_name} = %{version}-%{release}
-Requires:  python-fixtures
 Requires:  python-mock
-Requires:  python-mox3
 Requires:  python-testrepository
 Requires:  python-testscenarios
 Requires:  python-testtools
@@ -93,14 +87,10 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr >= 0.6
 # Required for tests
-BuildRequires:  python3-fixtures
-BuildRequires:  python3-keystoneclient
-BuildRequires:  python3-mox3
 BuildRequires:  python3-os-testr
+BuildRequires:  python3-osc-lib
 BuildRequires:  python3-oslo-serialization
 BuildRequires:  python3-oslotest
-BuildRequires:  python3-requests
-BuildRequires:  python3-requests-mock
 BuildRequires:  python3-testrepository
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
@@ -108,7 +98,7 @@ BuildRequires:  python3-PyYAML
 
 Requires:       python3-babel
 Requires:       python3-iso8601
-Requires:       python3-keystoneclient >= 1:3.8.0
+Requires:       python3-osc-lib >= 1.5.1
 Requires:       python3-oslo-concurrency >= 3.8.0
 Requires:       python3-oslo-config >= 2:3.14.0
 Requires:       python3-oslo-i18n >= 2.1.0
@@ -119,7 +109,6 @@ Requires:       python3-oslo-service >= 1.10.0
 Requires:       python3-oslo-utils >= 3.18.0
 Requires:       python3-pbr
 Requires:       python3-prettytable
-Requires:       python3-requests >= 2.10.0
 Requires:       python3-PyYAML >= 3.10
 Requires:       python3-six >= 1.9.0
 
@@ -131,9 +120,7 @@ and Command Line Interface (CLI) library.
 Summary:        Tests for Python client for monasca REST API
 
 Requires:  python3-%{pypi_name} = %{version}-%{release}
-Requires:  python3-fixtures
 Requires:  python3-mock
-Requires:  python3-mox3
 Requires:  python3-testrepository
 Requires:  python3-testscenarios
 Requires:  python3-testtools
