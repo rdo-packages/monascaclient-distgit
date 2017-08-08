@@ -157,10 +157,6 @@ mv %{buildroot}%{_bindir}/%{cliname} %{buildroot}%{_bindir}/%{cliname}-%{python2
 ln -s %{_bindir}/%{cliname}-%{python2_version} %{buildroot}%{_bindir}/%{cliname}-2
 ln -s %{_bindir}/%{cliname}-2 %{buildroot}%{_bindir}/%{cliname}
 
-# Install bash completion scripts
-mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d/
-mv  %{buildroot}%{_datarootdir}/monasca.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/python-monascaclient
-
 %check
 %if 0%{?with_python3}
 %{__python3} setup.py test
@@ -176,7 +172,6 @@ rm -rf .testrepository
 %{_bindir}/%{cliname}
 %{_bindir}/%{cliname}-2
 %{_bindir}/%{cliname}-%{python2_version}
-%{_sysconfdir}/bash_completion.d/python-monascaclient
 %exclude %{python2_sitelib}/%{pypi_name}/tests
 
 %files -n python2-%{pypi_name}-tests
