@@ -15,6 +15,7 @@ Summary:        Python client for monasca REST API
 License:        ASL 2.0
 URL:            https://github.com/openstack/python-monascaclient
 Source0:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_version}.tar.gz
+Source1:        monasca.bash_completion
 
 BuildArch:      noarch
 
@@ -159,7 +160,7 @@ ln -s %{_bindir}/%{cliname}-2 %{buildroot}%{_bindir}/%{cliname}
 
 # Install bash completion scripts
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d/
-mv  %{buildroot}%{_datarootdir}/monasca.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/python-monascaclient
+install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/bash_completion.d/python-monascaclient
 
 %check
 %if 0%{?with_python3}
