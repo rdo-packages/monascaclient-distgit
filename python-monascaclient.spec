@@ -157,6 +157,8 @@ mv %{buildroot}%{_bindir}/%{cliname} %{buildroot}%{_bindir}/%{cliname}-%{python2
 ln -s %{_bindir}/%{cliname}-%{python2_version} %{buildroot}%{_bindir}/%{cliname}-2
 ln -s %{_bindir}/%{cliname}-2 %{buildroot}%{_bindir}/%{cliname}
 
+rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
+
 %check
 %if 0%{?with_python3}
 %{__python3} setup.py test
