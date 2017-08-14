@@ -8,8 +8,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.7.0
+Release:        1%{?dist}
 Summary:        Python client for monasca REST API
 
 License:        ASL 2.0
@@ -186,3 +186,6 @@ rm -rf .testrepository
 
 
 %changelog
+* Mon Aug 14 2017 Alfredo Moralejo <amoralej@redhat.com> 1.7.0-1
+- Update to 1.7.0
+
