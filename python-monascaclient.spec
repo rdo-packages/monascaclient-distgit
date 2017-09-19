@@ -88,6 +88,7 @@ BuildRequires:  python3-testrepository
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
 BuildRequires:  python3-PyYAML
+BuildRequires:  openstack-macros
 
 Requires:       python3-babel
 Requires:       python3-iso8601
@@ -122,7 +123,7 @@ This package contains the unit tests
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 # Let RPM handle the dependencies
-rm -f test-requirements.txt requirements.txt
+%py_req_cleanup
 
 %build
 %py2_build
