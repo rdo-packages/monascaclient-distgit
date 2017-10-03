@@ -7,6 +7,10 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+%global common_desc \
+Python client for monasca REST API. Includes python library for monasca API \
+and Command Line Interface (CLI) library.
+
 Name:           python-%{pypi_name}
 Version:        XXX
 Release:        XXX
@@ -19,9 +23,7 @@ Source0:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_versio
 BuildArch:      noarch
 
 %description
-Python client for monasca REST API. Includes python library for monasca API
-and Command Line Interface (CLI) library.
-
+%{common_desc}
 
 %package -n     python2-%{pypi_name}
 Summary:        Python client for monasca REST API
@@ -52,9 +54,7 @@ Requires:       PyYAML >= 3.10
 Requires:       python-six >= 1.9.0
 
 %description -n python2-%{pypi_name}
-Python client for monasca REST API. Includes python library for monasca API
-and Command Line Interface (CLI) library.
-
+%{common_desc}
 
 %package -n     python2-%{pypi_name}-tests
 Summary:        Tests for Python client for monasca REST API
@@ -66,8 +66,7 @@ Requires:  python-testscenarios
 Requires:  python-testtools
 
 %description -n python2-%{pypi_name}-tests
-Python client for monasca REST API. Includes python library for monasca API
-and Command Line Interface (CLI) library.
+%{common_desc}
 
 This package contains the unit tests
 
@@ -101,8 +100,7 @@ Requires:       python3-PyYAML >= 3.10
 Requires:       python3-six >= 1.9.0
 
 %description -n python3-%{pypi_name}
-Python client for monasca REST API. Includes python library for monasca API
-and Command Line Interface (CLI) library.
+%{common_desc}
 
 %package -n     python3-%{pypi_name}-tests
 Summary:        Tests for Python client for monasca REST API
@@ -114,8 +112,7 @@ Requires:  python3-testscenarios
 Requires:  python3-testtools
 
 %description -n python3-%{pypi_name}-tests
-Python client for monasca REST API. Includes python library for monasca API
-and Command Line Interface (CLI) library.
+%{common_desc}
 
 This package contains the unit tests
 %endif
