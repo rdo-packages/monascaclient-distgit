@@ -22,6 +22,9 @@ Source0:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_versio
 
 BuildArch:      noarch
 
+BuildRequires:  git
+BuildRequires:  openstack-macros
+
 %description
 %{common_desc}
 
@@ -32,7 +35,6 @@ Summary:        Python client for monasca REST API
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
-BuildRequires:  git
 # Required for tests
 BuildRequires:  python-os-testr
 BuildRequires:  python-osc-lib
@@ -88,7 +90,6 @@ BuildRequires:  python3-testrepository
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
 BuildRequires:  python3-PyYAML
-BuildRequires:  openstack-macros
 
 Requires:       python3-babel
 Requires:       python3-iso8601
