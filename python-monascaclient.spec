@@ -33,27 +33,35 @@ Summary:        Python client for monasca REST API
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
 BuildRequires:  python2-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-pbr
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-pbr
 # Required for tests
-BuildRequires:  python-os-testr
-BuildRequires:  python-osc-lib
-BuildRequires:  python-oslo-serialization
-BuildRequires:  python-oslotest
-BuildRequires:  python-testrepository
-BuildRequires:  python-testscenarios
-BuildRequires:  python-testtools
+BuildRequires:  python2-os-testr
+BuildRequires:  python2-osc-lib
+BuildRequires:  python2-oslo-serialization
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testscenarios
+BuildRequires:  python2-testtools
+%if 0%{?fedora} || 0%{?rhel} > 7
+BuildRequires:  python2-pyyaml
+%else
 BuildRequires:  PyYAML
+%endif
 
-Requires:       python-babel
-Requires:       python-iso8601
-Requires:       python-osc-lib >= 1.7.0
-Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 3.20.0
-Requires:       python-pbr
-Requires:       python-prettytable
+Requires:       python2-babel
+Requires:       python2-iso8601
+Requires:       python2-osc-lib >= 1.8.0
+Requires:       python2-oslo-serialization >= 2.18.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-pbr
+Requires:       python2-prettytable
+Requires:       python2-six >= 1.10.0
+%if 0%{?fedora} || 0%{?rhel} > 7
+Requires:       python2-pyyaml >= 3.10
+%else
 Requires:       PyYAML >= 3.10
-Requires:       python-six >= 1.9.0
+%endif
 
 %description -n python2-%{pypi_name}
 %{common_desc}
@@ -62,10 +70,10 @@ Requires:       python-six >= 1.9.0
 Summary:        Tests for Python client for monasca REST API
 
 Requires:  python2-%{pypi_name} = %{version}-%{release}
-Requires:  python-mock
-Requires:  python-testrepository
-Requires:  python-testscenarios
-Requires:  python-testtools
+Requires:  python2-mock
+Requires:  python2-testrepository
+Requires:  python2-testscenarios
+Requires:  python2-testtools
 
 %description -n python2-%{pypi_name}-tests
 %{common_desc}
@@ -93,13 +101,13 @@ BuildRequires:  python3-PyYAML
 
 Requires:       python3-babel
 Requires:       python3-iso8601
-Requires:       python3-osc-lib >= 1.7.0
-Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-osc-lib >= 1.8.0
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr
 Requires:       python3-prettytable
 Requires:       python3-PyYAML >= 3.10
-Requires:       python3-six >= 1.9.0
+Requires:       python3-six >= 1.10.0
 
 %description -n python3-%{pypi_name}
 %{common_desc}
