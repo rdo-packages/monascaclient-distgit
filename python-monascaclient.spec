@@ -12,8 +12,8 @@ Python client for monasca REST API. Includes python library for monasca API \
 and Command Line Interface (CLI) library.
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.12.1
+Release:        1%{?dist}
 Summary:        Python client for monasca REST API
 
 License:        ASL 2.0
@@ -193,3 +193,6 @@ rm -rf .testrepository
 
 
 %changelog
+* Thu Aug 09 2018 RDO <dev@lists.rdoproject.org> 1.12.1-1
+- Update to 1.12.1
+
