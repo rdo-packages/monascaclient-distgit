@@ -43,11 +43,10 @@ BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-pbr
 # Required for tests
-BuildRequires:  python%{pyver}-os-testr
+BuildRequires:  python%{pyver}-stestr
 BuildRequires:  python%{pyver}-osc-lib
 BuildRequires:  python%{pyver}-oslo-serialization
 BuildRequires:  python%{pyver}-oslotest
-BuildRequires:  python%{pyver}-testrepository
 BuildRequires:  python%{pyver}-testscenarios
 BuildRequires:  python%{pyver}-testtools
 
@@ -82,7 +81,7 @@ Summary:        Tests for Python client for monasca REST API
 
 Requires:  python%{pyver}-%{pypi_name} = %{version}-%{release}
 Requires:  python%{pyver}-mock
-Requires:  python%{pyver}-testrepository
+Requires:  python%{pyver}-stestr
 Requires:  python%{pyver}-testscenarios
 Requires:  python%{pyver}-testtools
 
@@ -110,7 +109,7 @@ ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-%{pyver}
 rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 
 %check
-%{pyver_bin} setup.py test
+stestr-%{pyver} run
 
 %files -n python%{pyver}-%{pypi_name}
 %license LICENSE
