@@ -19,7 +19,7 @@ Python client for monasca REST API. Includes python library for monasca API \
 and Command Line Interface (CLI) library.
 
 Name:           python-%{pypi_name}
-Version:        1.14.0
+Version:        1.15.0
 Release:        1%{?dist}
 Summary:        Python client for monasca REST API
 
@@ -125,6 +125,9 @@ stestr-%{pyver} run
 %{pyver_sitelib}/%{pypi_name}/tests
 
 %changelog
+* Thu May 16 2019 RDO <dev@lists.rdoproject.org> 1.15.0-1
+- Update to 1.15.0
+
 * Mon Mar 11 2019 RDO <dev@lists.rdoproject.org> 1.14.0-1
 - Update to 1.14.0
 
