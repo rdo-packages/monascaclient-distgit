@@ -109,7 +109,7 @@ ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-%{pyver}
 rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 
 %check
-stestr-%{pyver} run
+PYTHON=%{pyver_bin} stestr-%{pyver} run
 
 %files -n python%{pyver}-%{pypi_name}
 %license LICENSE
