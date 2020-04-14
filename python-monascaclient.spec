@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %global pypi_name monascaclient
 %global cliname   monasca
 
@@ -35,57 +24,47 @@ BuildRequires:  openstack-macros
 %description
 %{common_desc}
 
-%package -n     python%{pyver}-%{pypi_name}
+%package -n     python3-%{pypi_name}
 Summary:        Python client for monasca REST API
-%{?python_provide:%python_provide python%{pyver}-%{pypi_name}}
+%{?python_provide:%python_provide python3-%{pypi_name}}
 
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-setuptools
-BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-pbr
 # Required for tests
-BuildRequires:  python%{pyver}-stestr
-BuildRequires:  python%{pyver}-osc-lib
-BuildRequires:  python%{pyver}-oslo-serialization
-BuildRequires:  python%{pyver}-oslotest
-BuildRequires:  python%{pyver}-testscenarios
-BuildRequires:  python%{pyver}-testtools
+BuildRequires:  python3-stestr
+BuildRequires:  python3-osc-lib
+BuildRequires:  python3-oslo-serialization
+BuildRequires:  python3-oslotest
+BuildRequires:  python3-testscenarios
+BuildRequires:  python3-testtools
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  PyYAML
-%else
-BuildRequires:  python%{pyver}-PyYAML
-%endif
+BuildRequires:  python3-PyYAML
 
-Requires:       python%{pyver}-babel
-Requires:       python%{pyver}-iso8601
-Requires:       python%{pyver}-osc-lib >= 1.8.0
-Requires:       python%{pyver}-oslo-serialization >= 2.18.0
-Requires:       python%{pyver}-oslo-utils >= 3.33.0
-Requires:       python%{pyver}-pbr
-Requires:       python%{pyver}-prettytable
-Requires:       python%{pyver}-six >= 1.10.0
+Requires:       python3-babel
+Requires:       python3-iso8601
+Requires:       python3-osc-lib >= 1.8.0
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-pbr
+Requires:       python3-prettytable
+Requires:       python3-six >= 1.10.0
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       PyYAML >= 3.10
-%else
-Requires:       python%{pyver}-PyYAML >= 3.10
-%endif
+Requires:       python3-PyYAML >= 3.10
 
-%description -n python%{pyver}-%{pypi_name}
+%description -n python3-%{pypi_name}
 %{common_desc}
 
-%package -n     python%{pyver}-%{pypi_name}-tests
+%package -n     python3-%{pypi_name}-tests
 Summary:        Tests for Python client for monasca REST API
 
-Requires:  python%{pyver}-%{pypi_name} = %{version}-%{release}
-Requires:  python%{pyver}-mock
-Requires:  python%{pyver}-stestr
-Requires:  python%{pyver}-testscenarios
-Requires:  python%{pyver}-testtools
+Requires:  python3-%{pypi_name} = %{version}-%{release}
+Requires:  python3-mock
+Requires:  python3-stestr
+Requires:  python3-testscenarios
+Requires:  python3-testtools
 
-%description -n python%{pyver}-%{pypi_name}-tests
+%description -n python3-%{pypi_name}-tests
 %{common_desc}
 
 This package contains the unit tests
@@ -98,30 +77,30 @@ rm -rf %{pypi_name}.egg-info
 %py_req_cleanup
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Create a versioned binary for backwards compatibility until everything is pure py3
-ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-%{pyver}
+ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-3
 
 rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 
 %check
-PYTHON=%{pyver_bin} stestr-%{pyver} run
+PYTHON=%{__python3} stestr-3 run
 
-%files -n python%{pyver}-%{pypi_name}
+%files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/%{pypi_name}
-%{pyver_sitelib}/python_%{pypi_name}-*-py?.?.egg-info
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/python_%{pypi_name}-*-py?.?.egg-info
 %{_bindir}/%{cliname}
-%{_bindir}/%{cliname}-%{pyver}
-%exclude %{pyver_sitelib}/%{pypi_name}/tests
+%{_bindir}/%{cliname}-3
+%exclude %{python3_sitelib}/%{pypi_name}/tests
 
-%files -n python%{pyver}-%{pypi_name}-tests
+%files -n python3-%{pypi_name}-tests
 %license LICENSE
-%{pyver_sitelib}/%{pypi_name}/tests
+%{python3_sitelib}/%{pypi_name}/tests
 
 %changelog
