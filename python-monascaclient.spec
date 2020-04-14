@@ -50,12 +50,7 @@ BuildRequires:  python%{pyver}-oslotest
 BuildRequires:  python%{pyver}-testscenarios
 BuildRequires:  python%{pyver}-testtools
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  PyYAML
-%else
 BuildRequires:  python%{pyver}-PyYAML
-%endif
 
 Requires:       python%{pyver}-babel
 Requires:       python%{pyver}-iso8601
@@ -66,12 +61,7 @@ Requires:       python%{pyver}-pbr
 Requires:       python%{pyver}-prettytable
 Requires:       python%{pyver}-six >= 1.10.0
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       PyYAML >= 3.10
-%else
 Requires:       python%{pyver}-PyYAML >= 3.10
-%endif
 
 %description -n python%{pyver}-%{pypi_name}
 %{common_desc}
