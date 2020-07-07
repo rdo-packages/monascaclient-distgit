@@ -94,7 +94,7 @@ PYTHON=%{__python3} stestr-3 run
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/python_%{pypi_name}-*-py?.?.egg-info
+%{python3_sitelib}/python_%{pypi_name}-*-py%{python3_version}.egg-info
 %{_bindir}/%{cliname}
 %{_bindir}/%{cliname}-3
 %exclude %{python3_sitelib}/%{pypi_name}/tests
