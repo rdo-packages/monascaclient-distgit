@@ -60,9 +60,8 @@ Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr
 Requires:       python3-prettytable
-Requires:       python3-six >= 1.10.0
 
-Requires:       python3-PyYAML >= 3.10
+Requires:       python3-yaml >= 3.12
 
 %description -n python3-%{pypi_name}
 %{common_desc}
