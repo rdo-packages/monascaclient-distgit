@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52807dd0_74b2a05b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-03-15T07:09:36Z",
+      "side": 1,
+      "message": "missing osc-lib",
+      "revId": "5de4ed1c4baf24c80c15cc10ce843d5a7778f1d0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
