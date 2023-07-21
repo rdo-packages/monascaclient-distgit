@@ -16,6 +16,24 @@
       "message": "I think we could get rid of babel [1] which is still in requirements.txt but \nit\u0027s not required anymore.\n\n[1] https://github.com/search?q\u003drepo%3Aopenstack%2Fpython-monascaclient+babel\u0026type\u003dcode",
       "revId": "5ebc1c68bf55971ad6631de6e108136a8f58b49c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ddf736b_d2360161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-21T12:45:49Z",
+      "side": 1,
+      "message": "I proposed a patch upstream https://review.opendev.org/c/openstack/python-monascaclient/+/889174",
+      "parentUuid": "488db4b1_2af28956",
+      "revId": "5ebc1c68bf55971ad6631de6e108136a8f58b49c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
