@@ -4,6 +4,8 @@
 %global cliname   monasca
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 
 %global common_desc \
 Python client for monasca REST API. Includes python library for monasca API \
@@ -14,7 +16,7 @@ Version:        XXX
 Release:        XXX
 Summary:        Python client for monasca REST API
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://github.com/openstack/python-monascaclient
 Source0:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_version}.tar.gz
 # Required for tarball sources verification
@@ -38,31 +40,9 @@ BuildRequires:  openstack-macros
 
 %package -n     python3-%{pypi_name}
 Summary:        Python client for monasca REST API
-%{?python_provide:%python_provide python3-%{pypi_name}}
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-# Required for tests
-BuildRequires:  python3-stestr
-BuildRequires:  python3-osc-lib
-BuildRequires:  python3-oslo-serialization
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-testtools
-
-BuildRequires:  python3-PyYAML
-
-Requires:       python3-babel
-Requires:       python3-iso8601
-Requires:       python3-osc-lib >= 1.8.0
-Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-utils >= 3.33.0
-Requires:       python3-pbr
-Requires:       python3-prettytable
-
-Requires:       python3-yaml >= 3.12
-
+BuildRequires:  pyproject-rpm-macros
 %description -n python3-%{pypi_name}
 %{common_desc}
 
@@ -70,11 +50,6 @@ Requires:       python3-yaml >= 3.12
 Summary:        Tests for Python client for monasca REST API
 
 Requires:  python3-%{pypi_name} = %{version}-%{release}
-Requires:  python3-mock
-Requires:  python3-stestr
-Requires:  python3-testscenarios
-Requires:  python3-testtools
-
 %description -n python3-%{pypi_name}-tests
 %{common_desc}
 
@@ -86,16 +61,29 @@ This package contains the unit tests
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
 %autosetup -n %{name}-%{upstream_version} -S git
-# Remove bundled egg-info
-rm -rf %{pypi_name}.egg-info
-# Let RPM handle the dependencies
-%py_req_cleanup
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+%generate_buildrequires
+%pyproject_buildrequires -t -e %{default_toxenv}
 
 %build
-%{py3_build}
+%pyproject_wheel
 
 %install
-%{py3_install}
+%pyproject_install
 
 # Create a versioned binary for backwards compatibility until everything is pure py3
 ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-3
@@ -103,13 +91,13 @@ ln -s %{cliname} %{buildroot}%{_bindir}/%{cliname}-3
 rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 
 %check
-PYTHON=%{__python3} stestr-3 run
+%tox -e %{default_toxenv}
 
 %files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/python_%{pypi_name}-*-py%{python3_version}.egg-info
+%{python3_sitelib}/python_%{pypi_name}-*.dist-info
 %{_bindir}/%{cliname}
 %{_bindir}/%{cliname}-3
 %exclude %{python3_sitelib}/%{pypi_name}/tests
