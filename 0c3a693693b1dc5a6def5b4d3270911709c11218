@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ec5907_921ef999",
+        "filename": "python-monascaclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-21T11:59:11Z",
+      "side": 0,
+      "message": "We need to keep them for now",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 28
+      },
+      "revId": "0c3a693693b1dc5a6def5b4d3270911709c11218",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
