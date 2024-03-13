@@ -112,3 +112,4 @@ rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 %{python3_sitelib}/%{pypi_name}/tests
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/python-monascaclient/commit/bb7d4b67cb1435eb2ac9c4161ad27b072c920d57
