@@ -12,8 +12,8 @@ Python client for monasca REST API. Includes python library for monasca API \
 and Command Line Interface (CLI) library.
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        zed-eom
+Release:        1%{?dist}
 Summary:        Python client for monasca REST API
 
 License:        Apache-2.0
@@ -112,3 +112,6 @@ rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 %{python3_sitelib}/%{pypi_name}/tests
 
 %changelog
+* Wed Sep 18 2024 RDO <dev@lists.rdoproject.org> zed-eom-1
+- Update to zed-eom
+
