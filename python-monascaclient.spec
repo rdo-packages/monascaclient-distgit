@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x815afec729392386480e076dcc0dfe2d21c023c9
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %global pypi_name monascaclient
 %global cliname   monasca
 
@@ -12,8 +12,8 @@ Python client for monasca REST API. Includes python library for monasca API \
 and Command Line Interface (CLI) library.
 
 Name:           python-%{pypi_name}
-Version:        2.8.0
-Release:        1%{?dist}
+Version:        XXX
+Release:        XXX
 Summary:        Python client for monasca REST API
 
 License:        Apache-2.0
@@ -112,6 +112,3 @@ rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 %{python3_sitelib}/%{pypi_name}/tests
 
 %changelog
-* Mon Sep 18 2023 RDO <dev@lists.rdoproject.org> 2.8.0-1
-- Update to 2.8.0
-
