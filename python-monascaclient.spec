@@ -1,9 +1,12 @@
+%global milestone .1-eom
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %global pypi_name monascaclient
 %global cliname   monasca
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%{?dlrn: %global tarsources }
+%{!?dlrn: %global tarsources }
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 
@@ -12,16 +15,20 @@ Python client for monasca REST API. Includes python library for monasca API \
 and Command Line Interface (CLI) library.
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        2023
+Release:        0.1%{?milestone}%{?dist}
 Summary:        Python client for monasca REST API
 
 License:        Apache-2.0
 URL:            https://github.com/openstack/python-monascaclient
-Source0:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_version}.tar.gz
+Source0:        https://tarballs.openstack.org/%{name}/%{tarsources}-%{upstream_version}.tar.gz
+#
+# patches_base=2023.1-eom
+#
+
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
-Source101:        https://tarballs.openstack.org/%{name}/%{name}-%{upstream_version}.tar.gz.asc
+Source101:        https://tarballs.openstack.org/%{name}/%{tarsources}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
 
@@ -65,7 +72,7 @@ This package contains the unit tests
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%autosetup -n %{name}-%{upstream_version} -S git
+%autosetup -n %{tarsources}-%{upstream_version} -S git
 
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
@@ -112,3 +119,6 @@ rm -f %{buildroot}%{_datarootdir}/monasca.bash_completion
 %{python3_sitelib}/%{pypi_name}/tests
 
 %changelog
+* Mon Mar 17 2025 RDO <dev@lists.rdoproject.org> 2023-0.1.1-eom
+- Update to 2023.1-eom
+
